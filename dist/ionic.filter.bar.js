@@ -125,7 +125,8 @@ angular.module('jett.ionic.filter.bar', ['ionic']);
             inputEl.addEventListener('touchstart', inputClick);
             inputEl.addEventListener('mousedown', inputClick);
 
-            document.addEventListener('keyup', keyUp);
+            // document.addEventListener('keyup', keyUp);
+            document.addEventListener('input', keyUp);
 
             // Calls the services filterItems function with the filterText to filter items
             var filterItems = function () {
@@ -135,7 +136,8 @@ angular.module('jett.ionic.filter.bar', ['ionic']);
             // Clean up when scope is destroyed
             $scope.$on('$destroy', function() {
               $element.remove();
-              document.removeEventListener('keyup', keyUp);
+            //   document.removeEventListener('keyup', keyUp);
+              document.removeEventListener('input', keyUp);
               if (backdrop) {
                 $ionicGesture.off(swipeGesture, 'swipe', backdropClick);
               }
